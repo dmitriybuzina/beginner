@@ -5,9 +5,7 @@
 class Test5
   def camel_case(str)
     chars = str.split(/[, \.?!]+/)
-    chars.each do |x|
-      x[0] = x[0].upcase
-    end
+    chars.each { |x| x[0] = x[0].upcase }
     resultStr = chars.join
     puts resultStr
   end

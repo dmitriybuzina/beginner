@@ -8,11 +8,11 @@ class Test2
     radius = gets.chomp.to_i
     pos_x = 10
     pos_y = 20
-    for i in 0..pos_x+radius
-      for j in 0..pos_y+radius
+    for i in 0..pos_x + radius
+      for j in 0..pos_y + radius
         x_squared = (i - pos_x) * (i - pos_x)
         y_squared = (j - pos_y) * (j - pos_y)
-        if((x_squared+y_squared - radius*radius).abs < radius)
+        if((x_squared + y_squared - radius * radius).abs < radius)
           print "*"
         else
           print " "

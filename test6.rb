@@ -3,38 +3,30 @@
 =end
 
 class Test6
-  @@result_array = []
-  def get_all(array, type)
-    array.each do |sub_array|
-      if sub_array.is_a? Array
-        sub_array.each do |item|
-          if item.is_a? Array
-            local = get_all(item,type)
-            if local.is_a? type
-              @@result_array.push(local)
-            end
-          end
+ def get_all(array, type)
+   result_array = []
+   array.each do |sub_array|
+    if sub_array.is_a? Array
+      sub_array.each do |item|
+        if item.is_a? Array
+          array.push(get_all(item, type))
         end
-        sub_array.each do |item|
-          if item.is_a? type
-            @@result_array.push(item)
-          end
+      end
+      sub_array.each do |item|
+        if item.is_a? type
+          result_array.push(item)
         end
-      elsif  sub_array .is_a? Hash
-        sub_array.each do |key,value|
-          if value.is_a? type
-            @@result_array.push(value)
-          end
-        end
-      elsif sub_array.is_a? type
-        @@result_array.push(sub_array)
-        sub_array.each do |item|
-          if item.is_a? type
-            @@result_array.push(item)
-          end
+      end
+    elsif  sub_array .is_a? Hash
+      sub_array.each do |key,value|
+        if value.is_a? type
+          result_array.push(value)
         end
       end
     end
-    @@result_array
   end
+  result_array
+ end
 end
+
+
